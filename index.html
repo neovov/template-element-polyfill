@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--[if IE 7]><html class="IE IE7" lang="en"><![endif]-->
+<!--[if IE 8]><html class="IE IE8" lang="en"><![endif]-->
+<!--[if IE 9]><html class="IE IE9" lang="en"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+	<meta charset="UTF-8" />
+	<title>&lt;template&gt; polyfill</title>
+</head>
+
+<body>
+	<template id="first">
+		<!-- HTML comment -->
+		<p>Template content</p>
+		<template id="sub">
+			<p>Mind blowing: a template inside a template</p>
+		</template>
+	</template>
+
+	<script src="template.js"></script>
+	<script>
+	var
+		// Retrieve the <template> element
+		template = document.getElementById("first"),
+
+		// Clone the template
+		clone = template.clone();
+
+	// Now, we can simply append the document fragment
+	document.body.appendChild(clone.content);
+	</script>
+</body>
+</html>
